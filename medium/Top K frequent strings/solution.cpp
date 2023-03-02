@@ -26,7 +26,7 @@ public:
         for(auto s:words){
             m[s]++; 
         }
-        auto comp=[](const Pair& p1, const Pair& p2)->bool{
+        auto comp=[](const Pair& p1, const Pair& p2)->bool {
             if(p1.first<p2.first){
                 return 1;
             }
