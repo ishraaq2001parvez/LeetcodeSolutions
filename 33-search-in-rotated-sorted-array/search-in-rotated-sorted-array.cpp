@@ -1,9 +1,9 @@
 class Solution {
 public:
-    int search(vector<int>& nums, int target) {
-        int l=0, r=size(nums)-1;
+    int search(vector<int>& nums, int& target) {
+        int l=0, r=size(nums)-1, mid;
         while(l<=r){
-            int mid = (l+r)/2;
+            mid = (l+r)/2;
         
             if(nums[mid]>nums.back()){
                 l=mid+1; 
@@ -11,12 +11,7 @@ public:
             else r=mid-1; 
         }
         // printf("%d", l);
-        if(binary_search(begin(nums), begin(nums)+l, target)){
-            return distance(begin(nums), lower_bound(begin(nums), begin(nums)+l, target)); 
-        }
-        if(binary_search(begin(nums)+l, end(nums), target)){
-            return distance(begin(nums), lower_bound(begin(nums)+l, end(nums), target)); 
-        }
-        return -1;
+        return binary_search(begin(nums), begin(nums)+l, target)?distance(begin(nums), lower_bound(begin(nums), begin(nums)+l, target)):binary_search(begin(nums)+l, end(nums), target)?distance(begin(nums), lower_bound(begin(nums)+l, end(nums), target)):-1;
+        
     }
 };
