@@ -3,7 +3,7 @@ public:
     bool canCross(vector<int>& stones) {
         if(size(stones)==1) return true; 
         if(stones[1]!=1) return false;
-        vector<vector<bool>> dp(size(stones), vector<bool>(size(stones)+2, 0));
+        vector<vector<bool>> dp(size(stones), vector<bool>(size(stones), 0));
         dp[0][0]=true;
         dp[1][1] = true; 
         map<int,int> m;;
